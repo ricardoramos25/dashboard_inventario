@@ -1,6 +1,11 @@
 # Dashboard Inventario
 
-Aplicacion en Streamlit para visualizar el inventario publicado desde Google Sheets.
+Aplicacion de inventario conectada a Google Sheets.
+
+El proyecto incluye dos formas de publicacion:
+
+- Streamlit para ejecutar Python localmente o en un servicio compatible.
+- GitHub Pages con una pagina estatica que consulta Google Sheets directamente desde el navegador y se actualiza cada 15 segundos.
 
 ## Requisitos
 
@@ -23,6 +28,26 @@ streamlit run app.py
 ```
 
 La aplicacion queda disponible en `http://localhost:8501`.
+
+## Publicar en GitHub Pages
+
+Este repositorio ya incluye `index.html`, `styles.css` y `script.js` para funcionar como pagina web estatica en GitHub Pages.
+
+Pasos:
+
+1. Abre el repositorio en GitHub.
+2. Ve a `Settings` > `Pages`.
+3. En `Build and deployment`, selecciona `Deploy from a branch`.
+4. Elige la rama `main` y la carpeta `/root`.
+5. Guarda los cambios.
+
+GitHub publicara la pagina en una URL similar a:
+
+```text
+https://ricardoramos25.github.io/dashboard_inventario/
+```
+
+La pagina obtiene los datos desde Google Sheets y se refresca sola cada 15 segundos, por lo que los cambios nuevos del sheet se reflejan sin volver a subir codigo.
 
 ## Ejecucion con Docker
 
@@ -55,6 +80,9 @@ docker compose down
 ## Estructura
 
 - `app.py`: aplicacion principal de Streamlit
+- `index.html`: pagina principal para GitHub Pages
+- `styles.css`: estilos de la pagina web estatica
+- `script.js`: lectura del CSV de Google Sheets y refresco automatico
 - `requirements.txt`: dependencias de Python
 - `Dockerfile`: definicion de la imagen Docker
 - `docker-compose.yml`: configuracion para levantar el contenedor con Docker Compose

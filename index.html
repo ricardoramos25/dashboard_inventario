@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Inventario</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Inventario en vivo</p>
+          <h1>Dashboard conectado a Google Sheets</h1>
+          <p class="hero-copy">
+            La pagina consulta el inventario publicado en Google Sheets y actualiza los datos automaticamente cada 15 segundos.
+          </p>
+        </div>
+        <div class="hero-panel">
+          <span id="status-badge" class="status-badge">Conectando...</span>
+          <p id="last-updated" class="status-copy">Esperando primera lectura</p>
+          <button id="refresh-button" class="refresh-button" type="button">Actualizar ahora</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="metrics-grid">
+          <article class="metric-card">
+            <span class="metric-label">Total Productos</span>
+            <strong id="metric-products" class="metric-value">--</strong>
+          </article>
+          <article class="metric-card accent-card">
+            <span class="metric-label">Total Stock</span>
+            <strong id="metric-stock" class="metric-value">--</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Actualizacion</span>
+            <strong id="metric-refresh" class="metric-value">15 s</strong>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <section class="panel chart-panel">
+            <div class="panel-header">
+              <h2>Stock por articulo</h2>
+              <p>Top 10 articulos por unidades disponibles</p>
+            </div>
+            <canvas id="stock-chart"></canvas>
+          </section>
+
+          <section class="panel table-panel">
+            <div class="panel-header">
+              <h2>Detalle de inventario</h2>
+              <p>Datos tomados desde Google Sheets</p>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Codigo</th>
+                    <th>Articulo</th>
+                    <th>Entradas</th>
+                    <th>Salidas</th>
+                    <th>Stock</th>
+                  </tr>
+                </thead>
+                <tbody id="inventory-table-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
