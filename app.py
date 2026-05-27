@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import altair as alt
 
 # Configuración visual
 st.set_page_config(page_title="Dashboard Inventario", layout="wide")
@@ -53,7 +54,23 @@ try:
 
     with col_grafico:
         st.subheader("📈 Gráfico de Stock")
-        st.bar_chart(datos.set_index('ARTICULOS')['STOCK'])
+        top_stock = (
+            datos[['ARTICULOS', 'STOCK']]
+            .sort_values('STOCK', ascending=False)
+            .head(8)
+        )
+
+        chart = (
+            alt.Chart(top_stock)
+            .mark_bar(size=18, cornerRadiusTopRight=4, cornerRadiusBottomRight=4)
+            .encode(
+                x=alt.X('STOCK:Q', title='Unidades en Stock'),
+                y=alt.Y('ARTICULOS:N', sort='-x', title='Articulo'),
+                tooltip=['ARTICULOS:N', 'STOCK:Q']
+            )
+            .properties(width=460, height=300)
+        )
+        st.altair_chart(chart, use_container_width=True)
 
 except Exception as e:
     st.error("Error al leer los datos. Revisa que el enlace CSV sea el correcto.")

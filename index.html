@@ -22,13 +22,13 @@
           <p class="eyebrow">Inventario en vivo</p>
           <h1>Dashboard conectado a Google Sheets</h1>
           <p class="hero-copy">
-            La pagina consulta el inventario publicado en Google Sheets y actualiza los datos automaticamente cada 15 segundos.
+            La pagina consulta el inventario publicado en Google Sheets y se actualiza cuando presionas el boton Actualizar.
           </p>
         </div>
         <div class="hero-panel">
           <span id="status-badge" class="status-badge">Conectando...</span>
           <p id="last-updated" class="status-copy">Esperando primera lectura</p>
-          <button id="refresh-button" class="refresh-button" type="button">Actualizar ahora</button>
+          <button id="refresh-button" class="refresh-button" type="button">Actualizar</button>
         </div>
       </header>
 
@@ -52,9 +52,11 @@
           <section class="panel chart-panel">
             <div class="panel-header">
               <h2>Stock por articulo</h2>
-              <p>Top 10 articulos por unidades disponibles</p>
+              <p>Top 8 articulos por unidades disponibles</p>
             </div>
-            <canvas id="stock-chart"></canvas>
+            <div class="chart-wrap">
+              <canvas id="stock-chart"></canvas>
+            </div>
           </section>
 
           <section class="panel table-panel">

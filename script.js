@@ -54,7 +54,7 @@ function renderTable(items) {
 function renderChart(items) {
   const topItems = [...items]
     .sort((left, right) => right.stock - left.stock)
-    .slice(0, 10);
+    .slice(0, 8);
 
   const data = {
     labels: topItems.map((item) => item.articulo),
@@ -63,6 +63,7 @@ function renderChart(items) {
         label: "Stock",
         data: topItems.map((item) => item.stock),
         borderRadius: 10,
+        maxBarThickness: 28,
         backgroundColor: [
           "#0e7c66",
           "#159779",
@@ -72,8 +73,6 @@ function renderChart(items) {
           "#c8cf63",
           "#e8b64d",
           "#ef9745",
-          "#ee7b52",
-          "#d96363",
         ],
       },
     ],
@@ -100,6 +99,10 @@ function renderChart(items) {
         x: {
           grid: {
             display: false,
+          },
+          ticks: {
+            maxRotation: 0,
+            minRotation: 0,
           },
         },
         y: {

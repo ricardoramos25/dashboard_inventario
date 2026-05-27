@@ -144,6 +144,11 @@ h1 {
   padding: 22px;
 }
 
+.chart-wrap {
+  position: relative;
+  height: 300px;
+}
+
 .panel-header h2 {
   margin: 0;
   font-size: 1.2rem;
@@ -206,5 +211,9 @@ tbody tr:hover {
 
   h1 {
     max-width: none;
+  }
+
+  .chart-wrap {
+    height: 260px;
   }
 }

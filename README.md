@@ -82,7 +82,7 @@ docker compose down
 - `app.py`: aplicacion principal de Streamlit
 - `index.html`: pagina principal para GitHub Pages
 - `styles.css`: estilos de la pagina web estatica
-- `script.js`: lectura del CSV de Google Sheets y refresco automatico
+- `script.js`: lectura del CSV de Google Sheets y actualizacion manual con boton
 - `requirements.txt`: dependencias de Python
 - `Dockerfile`: definicion de la imagen Docker
 - `docker-compose.yml`: configuracion para levantar el contenedor con Docker Compose
