@@ -5,7 +5,7 @@ Aplicacion de inventario conectada a Google Sheets.
 El proyecto incluye dos formas de publicacion:
 
 - Streamlit para ejecutar Python localmente o en un servicio compatible.
-- GitHub Pages con una pagina estatica que consulta Google Sheets directamente desde el navegador y se actualiza cada 15 segundos.
+- GitHub Pages con una pagina estatica que consulta Google Sheets directamente desde el navegador con actualizacion manual desde el boton `Actualizar`.
 
 ## Requisitos
 
@@ -47,7 +47,7 @@ GitHub publicara la pagina en una URL similar a:
 https://ricardoramos25.github.io/dashboard_inventario/
 ```
 
-La pagina obtiene los datos desde Google Sheets y se refresca sola cada 15 segundos, por lo que los cambios nuevos del sheet se reflejan sin volver a subir codigo.
+La pagina obtiene los datos desde Google Sheets y se actualiza cuando presionas el boton `Actualizar`, por lo que los cambios nuevos del sheet se reflejan sin volver a subir codigo.
 
 ## Ejecucion con Docker
 

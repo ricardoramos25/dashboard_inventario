@@ -1,5 +1,4 @@
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRNCLNcBTHNKdxw6By1K5yNsyKIDMOno9SJboRJA3cV4liB02ZK38TeC5p5FfYYOjjblFUNgMdQX3zH/pub?gid=864297796&single=true&output=csv";
-const REFRESH_INTERVAL_MS = 15000;
 
 const metricProducts = document.getElementById("metric-products");
 const metricStock = document.getElementById("metric-stock");
@@ -140,4 +139,3 @@ function fetchInventory() {
 refreshButton.addEventListener("click", fetchInventory);
 
 fetchInventory();
-setInterval(fetchInventory, REFRESH_INTERVAL_MS);

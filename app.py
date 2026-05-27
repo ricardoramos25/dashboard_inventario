@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from streamlit_autorefresh import st_autorefresh
 
 # Configuración visual
 st.set_page_config(page_title="Dashboard Inventario", layout="wide")
@@ -8,9 +7,6 @@ st.set_page_config(page_title="Dashboard Inventario", layout="wide")
 # TU ENLACE CSV (Asegúrate de que sea el de Google Sheets con output=csv)
 LINK_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRNCLNcBTHNKdxw6By1K5yNsyKIDMOno9SJboRJA3cV4liB02ZK38TeC5p5FfYYOjjblFUNgMdQX3zH/pub?gid=864297796&single=true&output=csv"
 
-REFRESH_INTERVAL_MS = 15000
-
-@st.cache_data(ttl=15)
 def cargar_inventario():
     # skip rows=7 para saltar las filas vacías de arriba
     # usecols=[0,1,2,3,4] para tomar solo Código, Artículos, Entradas, Salidas y Stock
@@ -28,8 +24,8 @@ def cargar_inventario():
 
 # --- DISEÑO DEL DASHBOARD ---
 st.title("📊 Control de Inventario")
-st_autorefresh(interval=REFRESH_INTERVAL_MS, key="inventario_autorefresh")
-st.caption("Actualizacion automatica cada 15 segundos desde Google Sheets")
+st.button("Actualizar")
+st.caption("Actualizacion manual desde Google Sheets")
 st.markdown("---")
 
 try:
