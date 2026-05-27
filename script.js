@@ -7,6 +7,7 @@ const statusBadge = document.getElementById("status-badge");
 const tableBody = document.getElementById("inventory-table-body");
 const refreshButton = document.getElementById("refresh-button");
 const chartContext = document.getElementById("stock-chart");
+const topProductsList = document.getElementById("top-products-list");
 
 let stockChart;
 
@@ -55,6 +56,8 @@ function renderChart(items) {
   const topItems = [...items]
     .sort((left, right) => right.salidas - left.salidas)
     .slice(0, 7);
+
+  renderTopProductsList(topItems);
 
   const data = {
     labels: topItems.map((item) => item.articulo),
@@ -111,6 +114,12 @@ function renderChart(items) {
       },
     },
   });
+}
+
+function renderTopProductsList(topItems) {
+  topProductsList.innerHTML = topItems
+    .map((item, index) => `<li>${index + 1}. ${item.articulo}</li>`)
+    .join("");
 }
 
 function updateTimestamp() {

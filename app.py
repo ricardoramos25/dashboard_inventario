@@ -72,6 +72,10 @@ try:
         )
         st.altair_chart(chart, use_container_width=True)
 
+        st.markdown("**Nombres de productos mas vendidos**")
+        nombres_top = [f"{i + 1}. {row['ARTICULOS']}" for i, (_, row) in enumerate(top_salidas.iterrows())]
+        st.write("\n".join(nombres_top))
+
 except Exception as e:
     st.error("Error al leer los datos. Revisa que el enlace CSV sea el correcto.")
     st.info("Tip: Asegúrate de que en Google Sheets la palabra 'CODIGO' esté en la fila 8.")

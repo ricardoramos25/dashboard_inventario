@@ -144,6 +144,22 @@ h1 {
   padding: 22px;
 }
 
+.top-list-wrap {
+  margin-top: 14px;
+}
+
+.top-list-wrap h3 {
+  margin: 0 0 8px;
+  font-size: 0.98rem;
+}
+
+#top-products-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .chart-wrap {
   position: relative;
   height: 300px;
