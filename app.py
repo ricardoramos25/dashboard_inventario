@@ -53,20 +53,20 @@ try:
         st.dataframe(datos, use_container_width=True, hide_index=True)
 
     with col_grafico:
-        st.subheader("📈 Gráfico de Stock")
-        top_stock = (
-            datos[['ARTICULOS', 'STOCK']]
-            .sort_values('STOCK', ascending=False)
-            .head(8)
+        st.subheader("📈 Top 7 Productos Mas Vendidos")
+        top_salidas = (
+            datos[['ARTICULOS', 'SALIDAS']]
+            .sort_values('SALIDAS', ascending=False)
+            .head(7)
         )
 
         chart = (
-            alt.Chart(top_stock)
+            alt.Chart(top_salidas)
             .mark_bar(size=18, cornerRadiusTopRight=4, cornerRadiusBottomRight=4)
             .encode(
-                x=alt.X('STOCK:Q', title='Unidades en Stock'),
+                x=alt.X('SALIDAS:Q', title='Unidades Vendidas'),
                 y=alt.Y('ARTICULOS:N', sort='-x', title='Articulo'),
-                tooltip=['ARTICULOS:N', 'STOCK:Q']
+                tooltip=['ARTICULOS:N', 'SALIDAS:Q']
             )
             .properties(width=460, height=300)
         )

@@ -53,15 +53,15 @@ function renderTable(items) {
 
 function renderChart(items) {
   const topItems = [...items]
-    .sort((left, right) => right.stock - left.stock)
-    .slice(0, 8);
+    .sort((left, right) => right.salidas - left.salidas)
+    .slice(0, 7);
 
   const data = {
     labels: topItems.map((item) => item.articulo),
     datasets: [
       {
-        label: "Stock",
-        data: topItems.map((item) => item.stock),
+        label: "Salidas",
+        data: topItems.map((item) => item.salidas),
         borderRadius: 10,
         maxBarThickness: 28,
         backgroundColor: [
